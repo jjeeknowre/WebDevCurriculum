@@ -1,2 +1,5 @@
 Hello, git!
 This is dummy text file!
+
+
+These are my changes to the dummy file
