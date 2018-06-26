@@ -2,25 +2,218 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!-- TODO: 또 무엇이 필요할까요? -->
+		<title>WebDevCurriculum/github</title>
+		<link rel="icon" href="https://github.com/fluidicon.png">
 	</head>
 	<body>
+		
 		<header>
-			<!-- TODO: 상단의 회색 부분은 어떻게 처리하면 좋을까요? -->
+			<div id="leftheader">
+				<a href="https://github.com"><svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+				<input type="text" placeholder="Search or jump to...">
+				<ul id="headerlist">
+					<li><a href="https://github.com/pulls">Pull requests</a></li>
+					<li><a href="https://github.com/issues">Issues</a></li>
+					<li><a href="https://github.com/marketplace">Marketplace</a></li>
+					<li><a href="https://github.com/explore">Explore</a></li>
+				</ul>
+			</div>
+			<div id="rightheader">
+				<a href="https://github.com/notifications"><svg class="octicon octicon-bell" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.99 11.991v1H0v-1l.73-.58c.769-.769.809-2.547 1.189-4.416.77-3.767 4.077-4.996 4.077-4.996 0-.55.45-1 .999-1 .55 0 1 .45 1 1 0 0 3.387 1.229 4.156 4.996.38 1.879.42 3.657 1.19 4.417l.659.58h-.01zM6.995 15.99c1.11 0 1.999-.89 1.999-1.999H4.996c0 1.11.89 1.999 1.999 1.999z"></path></svg></a>
+				<div class="newdropdown">
+					<button class="newdropbtn">+</i></button>
+					<ul>
+						<li><a href="https://github.com/new">New repository</a></li>
+						<li><a href="https://github.com/new/import">Import repository</a></li>
+						<li><a href="https://gist.github.com/">New gist</a></li>
+						<li><a href="https://github.com/organizations/new">New Organization</a></li>
+					</ul>
+				</div> 
+				<div class="userdropdown">
+					<button class="userbtn"><img src="https://avatars2.githubusercontent.com/u/31752169?s=40&v=4" width="20" height="20"></button>
+					<ul>
+						<li>Signed in as jeeknowre</li>
+						<hr>
+						<li><a href="https://github.com/jjeeknowre">Your profile</a></li>
+						<li><a href="https://github.com/jjeeknowre?tab=stars">Your stars</a></li>
+						<li><a href="https://gist.github.com/">Your gists</a></li>
+						<hr>
+						<li><a href="https://help.github.com/">Help</a></li>
+						<li><a href="https://github.com/settings/profile">Settings</a></li>
+						<li>Sign out</li>
+					</ul>
+				</div>
+			</div>
 		</header>
 
 		<section class="main">
 			<header class="main-header">
-				<!-- TODO: 메인의 헤더 부분 -->
+				<div id="mainleftheader">
+					<h1>
+						<svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+						<a href="https://github.com/jjeeknowre" style="font-weight:normal">KnowRe</a> / <b><a href="https://github.com/jjeeknowre/WebDevCurriculum">WebDevCurriculum</a></b>
+					</h1>
+				</div>
+				<div id="mainrightheader">
+					<form id="watch">
+						<button>
+							<svg class="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+							Unwatch
+						</button>
+						<button>19</button>
+					</form>
+					<form id="star">
+						<button>
+							<svg class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
+							Star
+						</button>
+						<button>
+							113
+						</button>
+					</form>
+					<form>
+						<button>
+							<svg class="octicon octicon-repo-forked" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+							Fork
+						</button>
+						<button>
+							106
+						</button>
+					</form>
+				<nav id="navheader">
+					<a href="https://github.com/Knowre-Dev/WebDevCurriculum">
+						<span>
+							<svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"></path></svg>
+							Code
+						</span>
+					</a>
+					<a href="https://github.com/Knowre-Dev/WebDevCurriculum/issues">
+						<span>
+							<svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+							Issues
+							<span class="circlenum">0</span>
+						</span>
+					</a>
+					<a href="https://github.com/Knowre-Dev/WebDevCurriculum/pulls">
+						<span>
+							<svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+							Pull requests
+							<span class="circlenum">1</span>
+						</span>
+					</a>
+					<a href="https://github.com/Knowre-Dev/WebDevCurriculum/projects">
+						<span>
+							<svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+							Projects
+							<span class="circlenum">0</span>
+						</span>
+					</a>
+					<a href="https://github.com/Knowre-Dev/WebDevCurriculum/projects">
+						<span>
+							<svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"></path></svg>
+							Insights
+						</span>
+					</a>
+				</nav>
 			</header>
 
 			<section class="main-detail">
-				<!-- TODO: 메인의 부분 -->
+				<h2>KnowRe web development curriculum for noobs</h2>
+				<div>
+					<span>
+						44 commmits
+					</span>
+					<span>
+						1 branch
+					</span>
+					<span>
+						0 releases
+					</span>
+					<span>
+						2 contributors
+					</span>
+					<span>
+						MIT
+					</span>
+				</div>
+				<div>
+					<div>
+						<button>Branch: master</button>
+						<button>New pull request</button>
+					</div>
+					<div>
+						<button>Create new file</button>
+						<button>Upload files</button>
+						<button>Find file</button>
+						<button>Clone or download</button>
+					</div>
+				</div>
+				<div id="commits">
+					<div id="currentcommit">
+						<span><b>KnowRe</b> Quest 02 added constraint</span>
+						<span><big>Last commit <em>8a3080e</em> on 7 Aug 2016</big></span>
+					</div>
+					<div class="commit">
+						<span>
+							<svg class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>
+							Part 0. git/<a href="">Quest 00. Hello, git</a>
+						</span>
+						<span class="comment">Part 2 finished</span>
+						<span class="editdate">2 years ago</span>
+					</div>
+					<div class="commit">
+						<span>
+							<svg class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>
+							<a href="">Part 1. HTML & CSS</a>
+						</span>
+						<span class="comment">Quest 02 added constraint</span>
+						<span class="editdate"></span>>2 years ago</span>
+					</div>
+					<div class="commit">
+						<span>
+							<svg class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+							<a href="">README.md</a>
+						</span>
+						<span class="comment">Fix: Removed advertisement</span>
+						<span class="editdate"></span>>2 years ago</span>
+					</div>
+					<div>
+						<div id="filebar">
+							<svg class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+							README.md
+						</div>
+						<div>
+							<h1>
+								KnowRe web development curriclum 2018
+							</h1>
+							<hr>
+						</div>
+					</div>
+				</div>
 			</section>
 		</section>
 
-		<footer>
-			<!-- TODO: 하단의 Copyright, Terms, Privacy 등은 어떻게 처리하면 좋을까요? -->
+		<footer id="main-footer">
+			<hr>
+			<p>
+				© 2018 GitHub, Inc.
+			</p>
+			<ul id="leftfooter">
+				<li><a href="https://github.com/site/terms">Terms</a></li>
+				<li><a href="https://github.com/site/privacy">Privacy</a></li>
+				<li><a href="https://help.github.com/articles/github-security/">Security</a></li>
+				<li><a href="https://status.github.com/">Status</a></li>
+				<li><a href="https://help.github.com/">Help</a></li>
+			</ul>
+			<a href="https://github.com/"><svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+			<ul id="rightfooter">
+				<li><a href="https://github.com/contact">Contact Github</a></li>
+				<li><a href="https://developer.github.com/">API</a></li>
+				<li><a href="https://training.github.com/">Training</a></li>
+				<li><a href="https://shop.github.com/">Shop</a></li>
+				<li><a href="https://blog.github.com/">Blog</a></li>
+				<li><a href="https://github.com/about">About</a></li>
+			</ul>
 		</footer>
 	</body>
 </html>
