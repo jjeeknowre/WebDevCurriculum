@@ -10,12 +10,13 @@ body {
 
 .contents {
 	display: grid;
+	grid-template-areas: 
+		"left main right"
 }
 
 .main {
+	grid-area: main;
 	background-color: skyblue;
-	grid-column-start: 2;
-	grid-column-end: 2;
 }
 
 .main header {
@@ -24,16 +25,14 @@ body {
 }
 
 .left {
+	grid-area: left;
 	background-color: pink;
-	grid-column-start: 1;
-	grid-column-end: 1;
 	width: 200px;
 }
 
 .right {
+	grid-area: right;
 	background-color: greenyellow;
-	grid-column-start: 3;
-	grid-column-end: 3;
 	width: 300px;
 }
 
