@@ -9,30 +9,35 @@ body {
 }
 
 .contents {
-	/* TODO: 이 곳을 채우세요! */
+	display: grid;
 }
 
 .main {
 	background-color: skyblue;
-	/* TODO: 이 곳을 채우세요! */
+	grid-column-start: 2;
+	grid-column-end: 2;
 }
 
 .main header {
 	background-color: lightgray;
-	/* TODO: 이 곳을 채우세요! */
+	height: 50px;
 }
 
 .left {
 	background-color: pink;
-	/* TODO: 이 곳을 채우세요! */
+	grid-column-start: 1;
+	grid-column-end: 1;
+	width: 200px;
 }
 
 .right {
 	background-color: greenyellow;
-	/* TODO: 이 곳을 채우세요! */
+	grid-column-start: 3;
+	grid-column-end: 3;
+	width: 300px;
 }
 
 footer {
 	background-color: yellow;
-	/* TODO: 이 곳을 채우세요! */
+	height: 50px;
 }
