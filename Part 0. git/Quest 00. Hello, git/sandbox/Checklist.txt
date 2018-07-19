@@ -1,0 +1,27 @@
+
+Q1. Why is a VCS necessary?
+A1. A VCS is necessary to keep historical data on files. It is useful for 
+comparing a previous state to a current state or to revert back to previous
+states, or to track issues by looking back at when modifications were made.
+It is also useful to recover lost, corrupted, or deleted files. 
+A VCS is also used to enable colloboration as it allows users to all work 
+on the same project/file simultaneously.
+
+Q2. What are other VCSs other than git? What are some differences and advantages?
+Other VCSs are Mercurial (Hg), Subversion (Svn), and Team Foundation Server (TFS).
+git:
+    advantages: Fast performance, Distributed system (not reliant on connection to server), branches
+
+Mercurial (DVCS):
+    advantages: Better Windows support. Also is a DVCS like git. More intiutive than git ()
+    differences: Fast, but not as fast as git. Simpliefied but less robust than git
+
+Subversion (CVCS):
+    advantages: Centralized, more protected codebase
+    differences: Centralized, so users need network access to push/pull and to commit changes. 
+    Merging is difficult (when two developers are working on the same file)
+    Slower than git
+
+TFS:
+    advantages: Microsoft
+    differences: Microsoft
