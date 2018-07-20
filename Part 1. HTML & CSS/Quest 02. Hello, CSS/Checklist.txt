@@ -1,10 +1,20 @@
 Q1. What are advantages and disadvantages of the three ways of applying CSS to HTML?
+A1. There are three different ways to apply CSS: In the element (<div style="style here">), in an 
+external style sheet (<link href="stylesheet.css">) or internal style sheet (<style> style here </style>)
+A1.1 There is not much advantages to using the first method. It was used in the past to allow Javascript
+change the style of an HTML element. Current web development discourage this practice, as well as using inline
+styles, as it mixes CSS and HTML together. You also cannot style pseudo-elements, and it would be quite 
+exhaustive to style every element.
+A1.2 Using external stylesheets is the preferred method. It doesn't clutter your main HTML file, allows for
+multiple pages to use the same stylesheet, and allows for you to style elements by their types/classes/ids.
+A1.3 Using internal stylesheets is similar to method #2, but it intermixes CSS with HTML (with the <style> tag),
+and also doesn't allow for other HTML pages to load the same styles. However, it does allow the page to load
+less files by not needing external CSS files.
 
 Q2. If multiple CCS rules are applied, which one takes precedence?
 A2. Specificity takes precedence in CSS. If two or more rules have the same level of 
 specificity on an element, then whichever CSS rule comes last (in the css file/html file),
-that rule takes precedence
-
+that rule takes precedence.
 
 Q3. If a box has the attribute "position: absolute", where is the anchor point?
 A3. If an element has the attribute "position: absolute", the element is positioned
@@ -23,3 +33,6 @@ to CSS layouts, as well as unpredictability in the layout. It's biggest problem 
 is removed from the normal flow of the document.
 
 Q6. What are the pros and cons of Flexbox and grid?
+A6. Flexboxes and grids main difference is that a Flexbox is 1 dimensional, whereas grids are 2 dimensional.
+Flexboxes sizes according to the elements in the flexbox (content outwards), whereas a grid places elements
+into the grid based on its content. Basically, flexbox focuses on content, whereas grid focuses on the layout.
