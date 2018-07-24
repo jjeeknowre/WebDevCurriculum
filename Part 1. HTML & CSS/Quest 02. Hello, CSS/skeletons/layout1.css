@@ -1,5 +1,5 @@
 body {
-	position: absolute;
+	position: relative;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -10,10 +10,14 @@ body {
 
 aside {
 	background-color: pink;
-	/* TODO: 이 곳을 채우세요! */
+	display: inline-block;
+	position: absolute;
+	width: 200px;
 }
 
 .main {
 	background-color: skyblue;
-	/* TODO: 이 곳을 채우세요! */
+	display: inline-block;
+	position: absolute;
+	left: 200px;
 }

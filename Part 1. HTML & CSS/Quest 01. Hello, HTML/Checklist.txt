@@ -1,0 +1,32 @@
+Q1. After HTML 4.x, how did the standards change?
+A1. Some of the important standards of HTML5 were as follows:
+    Less dependence on plugins (such as Flash)
+    Usage of markup over scripting as much as possible
+    Availibility across all devices 
+    Better Performance and better usage of CPU resources
+
+Q2. Why/How did Microsoft/Internet Explorer leave a bad mark on the history of the internet?
+A2. Microsoft first killed of Netscape by bundling IE with Windows, giving them a monopoly
+on internet browsers. To make things worse, MS didn't stick to the guidelines established by 
+W3C, which resulted in websites being displayed differently on other browsers (than on IE).
+Also, since the majority of users had IE, developers/companies were forced to rely on IE.
+Many organizations built their infrastructure around IE, and not just IE, but specific older versions
+of IE. This just crippled the progress of the internet, as MS took a more lackadasical approach into
+the development of IE (because of their monopoly). It wasn't until competitors like Firefox and 
+Chrome started emerging into popularity that MS began to improve IE
+
+Q3. What are the differences of the elements <section>, <div>, <header>, <footer>, <article>?
+A3. These elements (except for <div>) are semantic elements. <div> preceeded these elements, 
+which came in HTML5. In actuality, these elements function the same, however, they are to be used
+for specific purposes as defined by their names.
+<section> defines a section on a document, which is a thematic grouping of content (usually with a heading)
+<header> defines a header for a document or a section
+<footer> defines a fooder for a document or a section
+<article> specifies independent, self-contained content.
+Other semantic elements are <nav>, <aside>, <figure>, <main>
+
+Q4. What is the difference between block elements and inline-block elements?
+A4. Block elements create new "blocks"/containers, and inline elements go along together "in-line".
+    Block elements will take the full width of its container, whereas inline block elements
+    will only take up as much width it needs to display its content.
+    Thus, inline elements stay on the same "line" together.
