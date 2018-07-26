@@ -6,9 +6,13 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 }
 
 .contents {
+	flex: 1 1 auto;
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
@@ -38,6 +42,7 @@ body {
 }
 
 footer {
+	flex: 0 0 auto;
 	background-color: yellow;
 	height: 50px;
 }
