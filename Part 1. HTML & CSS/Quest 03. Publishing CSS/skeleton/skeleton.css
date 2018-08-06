@@ -7,7 +7,506 @@ html {
 }
 
 body {
-	/* TODO: 어떤 코드가 들어가야 할까요? */
+	display: flex;
+	flex-flow: column nowrap;
+	margin: 0;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
-/* TODO: 또 어떤 코드들이 들어가야 할까요? */
+/* top header */
+body > header {
+	align-self: center;
+	font-size: 14px;
+	height: 60px;
+	width: 1012px;
+	padding: 0 calc(50% - 506px);
+	background-color: #24292e;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+body > header > ul {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	font-weight: 600;
+	align-self: center;
+}
+
+body > header > ul > li {
+	padding: 0 8px;
+}
+
+body > header > ul:last-child > li {
+	align-self: flex-end;
+}
+
+body > header > ul:first-child > li > a > svg {
+	filter: invert(100%);
+}
+
+body > header > ul:first-child > li > input {
+	height: 16px;
+	width: 284px;
+	background-color: rgba(255,255,255,0.125);
+	border-radius: 3px;
+	border: none;
+	padding: 7px 8px;
+	margin: 0px -2px;
+	vertical-align: middle;
+	font-weight: 500;
+	background-image: url(https://assets-cdn.github.com/images/search-shortcut-hint.svg);
+	background-position: 275px 4px;
+    background-repeat: no-repeat;
+}
+
+body > header > ul:first-child > li > input:focus { 
+	background-color: white;
+	background-image: none;
+}
+
+body > header > ul:first-child > li > a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+body > header > ul:last-child > li svg {
+	filter: invert(80%);
+}
+
+body > header > ul:last-child > li svg, body > header > ul:last-child > li img {
+	vertical-align: middle;
+}
+
+body > header > ul:last-child > li:last-child > div > img {
+	overflow: hidden;
+    line-height: 1;
+    border-radius: 3px;
+}
+
+body > header > ul:last-child > li > div {
+	position: relative;
+}
+
+body > header > ul:last-child > li > div:hover {
+	cursor: pointer;
+}
+
+body > header > ul:last-child > li:nth-child(2) > div > ul, body > header > ul:last-child > li:last-child > div > ul {
+	position: absolute;
+	display: none;
+	z-index: 1;
+	background-color: white;
+	border: 1px solid rgba(27,31,35,0.15);
+	border-radius: 4px;
+	box-shadow: 0 3px 12px rgba(27,31,35,0.15);
+	margin-top: 8px;
+    min-width: 180px;
+	padding: 9px 10px 9px 15px;
+	right: 0;
+}
+
+body > header > ul:last-child > li:nth-child(2) > div:focus,
+body > header > ul:last-child > li:last-child > div:focus { 
+	outline: none;
+}
+
+body > header > ul:last-child > li:nth-child(2) > div:active > ul,
+body > header > ul:last-child > li:nth-child(2) > div:focus > ul,
+body > header > ul:last-child > li:last-child > div:active > ul, 
+body > header > ul:last-child > li:last-child > div:focus > ul {
+	display: block;
+}
+
+body > header > ul:last-child > li:nth-child(2) > div:active svg,
+body > header > ul:last-child > li:nth-child(2) > div:focus svg,
+body > header > ul:last-child > li:last-child > div:active svg, 
+body > header > ul:last-child > li:last-child > div:focus svg {
+	filter: invert(60%);
+}
+
+/* universal */
+ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* main section */
+body > section {
+	align-self: center;
+	width: 100%;
+}
+
+body > section > header {
+	width: 980px;
+	padding: 20px calc(50% - 490px) 20px calc(50% - 490px);
+	background-color: #fafbfc;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+body > section > header > h1 {
+	margin: 0;
+	font-size: 18px;
+}
+
+body > section > header > h1 > a {
+	text-decoration: none;
+	color: #0366d6;
+}
+
+body > section > header > h1 > a:visited {
+	color: #0366d6;
+}
+
+body > section > header > h1 > a:nth-child(2) {
+	font-weight: normal;
+}
+
+body > section > header > h1 > a:last-child {
+	font-weight: 600;
+}
+
+body > section > header > ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+body > section > header > ul > li {
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 0px 4px;
+}
+
+body > section > header > ul > li > button {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	padding: 5px 8px;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid rgba(27,31,35,0.2);
+}
+
+body > section > header> ul > li > button:first-child {
+	font-weight: 600;
+	background-color: #eff3f6;
+	background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+	border-radius: 3px 0px 0px 3px;
+	border-right: 0px;
+}
+
+body > section > header> ul > li > button:last-child {
+	background-color: #fff;
+	border-radius: 0px 3px 3px 0px;
+}
+
+body > section > header > ul > li > button > svg {
+	padding-left: 2px;
+	padding-right: 3px;
+}
+
+body > section > nav {
+	font-size: 14px;
+	width: 980px;
+	padding: 0px calc(50% - 490px) 0px calc(50% - 490px);
+	background-color: #fafbfc;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	border-bottom: 1px solid #e1e4e8;
+}
+
+body > section > nav > ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+}
+
+body > section > nav > ul > li {
+	padding: 8px 14px;
+	margin-bottom: -1px;
+}
+
+body > section > nav > ul > li:first-child {
+	background-color: #fff;
+	border-top: #e36209 solid 3px;
+	border-right: #e1e4e8 solid 1px;
+	border-left: #e1e4e8 solid 1px;
+	border-radius: 3px 3px 0px 0px;
+}
+
+body > section > nav> ul > li:first-child a {
+	color: #24292e;
+}
+
+body > section > nav > ul > li ~ li {
+	border-top: transparent solid 3px;
+}
+
+body > section > nav > ul > li ~ li > a {
+	color: #586069;
+}
+
+body > section > nav > ul > li > a {
+	text-decoration: none;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+body > section > nav > ul > li > a > svg {
+	padding-right: 4px;
+}
+
+body > section > nav > ul > li ~ li > a > svg {
+	filter: invert(75%);
+}
+
+body > section > nav > ul > li > a > span {
+	font-size: 12px;
+	font-weight: 600;
+	margin-left: 4px;
+	padding: 2px 5px;
+	border-radius: 20px;
+    background: rgba(27,31,35,0.08);
+    line-height: 1;
+}
+
+body > section > section {
+	font-size: 14px;
+	width: 980px;
+	padding: 0px calc(50% - 490px) 0px calc(50% - 490px);
+	margin: 5px 0px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+}
+
+body > section > section > article {
+	margin: 10px 0px;
+}
+
+body > section > section > ul:nth-child(2) {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	padding: 10px 0px;
+	margin: 5px 0px;
+	border: 1px solid #e1e4e8;
+	border-radius: 3px;
+	border-bottom: 8px solid #e34c26;
+}	
+
+body > section > section > ul:nth-child(2) > li {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+body > section > section > ul:nth-child(2) > li > svg {
+	filter: invert(35%);
+	margin-right: 3px;
+}
+
+body > section > section > div:nth-child(3) {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	margin: 5px 0px;
+}
+
+body > section > section > div:nth-child(3) > ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0px -3px;
+}
+
+body > section > section > div:nth-child(3) > ul > li > button {
+	border-radius: 3px;
+	margin: 0px 3px;
+}
+
+body > section > section > div:nth-child(3) > ul > li button {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 12px;
+	font-weight: 600;
+    background-color: #eff3f6;
+	background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+	border: 1px solid rgba(27,31,35,0.2);
+	padding: 5px 9px;
+}
+
+body > section > section > div:nth-child(3) > ul:nth-child(2) > li > button {
+	color: #fff;
+	background-color: #28a745;
+	background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+}
+
+body > section > section > div:nth-child(3) > ul > li > ul {
+	display: flex;
+	flex-flow: row nowrap;
+	margin-right: 3px;
+}
+
+body > section > section > div:nth-child(3) > ul:last-child > li:first-child > ul > li:first-child > button {
+	border-radius: 3px 0px 0px 3px;
+	border-right: 0px;
+}
+
+body > section > section > div:nth-child(3) > ul:last-child > li:first-child > ul > li:nth-child(2) > button {
+	border-right: 0px;
+}
+
+body > section > section > div:nth-child(3) > ul:last-child > li:first-child > ul > li:last-child > button {
+	border-radius: 0px 3px 3px 0px;
+}
+
+body > section > section > div:nth-child(4) {
+	margin: 5px 0px;
+	color: #6a737d;
+}
+
+body > section > section > div:nth-child(4) a {
+	text-decoration: none;
+	color: #0366d6;
+}
+body > section > section > div:nth-child(4) a:visited {
+	color: #0366d6;
+}
+
+body > section > section > div:nth-child(4) > ul {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	border: 1px solid #eaecef;
+	border-top: 0;
+}
+
+body > section > section > div:nth-child(4) > ul:hover {
+	background-color: #F8F8F8;
+}
+
+body > section > section > div:nth-child(4) > ul:first-child {
+	border-radius: 3px 3px 0 0;
+	border: 1px solid #c8e1ff;
+	background-color: #f1f8ff;
+}
+
+body > section > section > div:nth-child(4) > ul > li {
+	padding: 8px 10px;
+	align-self: center;
+}
+
+body > section > section > div:nth-child(4) > ul > li:nth-child(1) {
+	flex: 0 0 450px;
+}
+body > section > section > div:nth-child(4) > ul > li:nth-child(2) {
+	flex: 0 0 200px;
+}
+body > section > section > div:nth-child(4) > ul > li:nth-child(3) {
+	flex: 1 0 auto;
+	text-align: right;
+}
+
+body > section > section > div:nth-child(4) > ul > li > b {
+	font-weight: 600;
+	color: black;
+}
+body > section > section > div:nth-child(4) > ul > li > em {
+	font-style: normal;
+	font-size: small;
+}
+
+body > section > section > div:nth-child(5) > div {
+	border-radius: 3px 3px 0 0;
+	border: 1px solid #C8C8C8;
+	background-color: #F0F0F0;
+	padding: 8px 10px;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+}
+
+body > section > section > div:nth-child(5) > div > svg {
+	padding-right: 5px;
+}
+
+body > section > section > div:nth-child(5) > article {
+	border: 1px solid #C8C8C8;
+	border-top: 0px;
+	padding: 40px;
+}
+
+body > section > section > div:nth-child(5) > article > h1 {
+	font-size: xx-large;
+	font-weight: 600;
+	margin: 0px;
+}
+
+body > section > section > div:nth-child(5) > article > hr {
+	background-color: #F0F0F0;
+    border: #fff solid 0px;
+	height: 1.5px;
+}
+
+
+/* footer */
+footer {
+	align-self: center;
+	width: 980px;
+	padding: 0px calc(50% - 499px) 0px calc(50% - 499px);
+	font-size: 12px;
+}
+
+footer > div {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+footer > hr {
+	background-color: #F0F0F0;
+    border: #fff solid 0px;
+	height: 1.5px;
+	margin: 30px 0px;
+}
+
+footer > div > ul {
+	overflow: hidden;
+	display: flex;
+}
+
+footer > div > ul > li:first-child {
+	color: #586069;
+}
+
+footer > div > ul > li > a {
+    padding: 0px 8px;
+	text-decoration: none;
+	color: #0366d6;
+}
+footer > div > ul > li > a:visited {
+	color: #0366d6;
+}
+footer > div > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+footer > div > a {
+	text-align: center;
+	filter: invert(75%);
+}
