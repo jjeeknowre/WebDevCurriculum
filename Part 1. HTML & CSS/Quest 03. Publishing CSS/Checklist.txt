@@ -1,0 +1,10 @@
+When publishing CSS, how do you organize classes and selectors?
+There are many different methods to organize CSS.
+To name a few:
+    OOCSS - object-oriented CSS
+    SMACSS - scalable and modular architecture for CSS
+    Atomic CSS
+    MCSS - multilayer CSS
+    AMCSS - attribute modules for CSS
+    FUN - Flat hierarchy of selectors, Utility styles, Name-spaced components   
+

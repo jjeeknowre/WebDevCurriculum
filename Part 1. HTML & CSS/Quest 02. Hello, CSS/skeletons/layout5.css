@@ -9,8 +9,10 @@ body {
 }
 
 .contents {
+	position: absolute;
+	height: 100%;
 	display: grid;
-	grid-template-areas: 
+	grid-template-areas:
 		"left main right"
 }
 
@@ -37,6 +39,9 @@ body {
 }
 
 footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
 	background-color: yellow;
 	height: 50px;
 }

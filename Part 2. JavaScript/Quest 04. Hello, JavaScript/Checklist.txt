@@ -1,0 +1,31 @@
+Q1. How did Javascript develop and change?
+Q1a. Which javascript versions do ES5, ES6, ES2017, etc refer to? 
+Javascript was created by Netscape in 1995
+Was standardized and renamed and released as ECMAScript1 in 1997 
+ECMAScript2 followed in 1998 with minor changes
+ECMAScript3 was released in 1999 with many features that we see in Javascript today
+ECMAScript5 was released in 2009 and was released with more enhancements and a `strict mode`
+ECMAScript6 was released in 2015 but was also referred to as ECMAScript 2015 and was released with
+many new features.
+Since ECMAscript 2015, there has been an annual release with incremental updates. These are 
+ECMAScript 2016, 2017, and 2018
+
+Q2. How do you use the javascript console on the web browser?
+A2. You can use the javascript console in developer tools on the web browser.   
+Q2a. What is the shortcut for opening the javscript console on Chrome?  
+A2a. Control+shift+j
+
+Q3. How let and const declarations different?
+A3. For const declarations, you must set a value. 
+    let and const variables are block scoped
+    const variables cannot be reassigned, whereas let variables can be reassigned
+Q3a. How are var declarations different?
+    var variables are not blocked scoped. 
+    their values can be reassigned
+
+Q4. What is an anonymous function in Javascript?
+A4. An anonymous function is a function expression without a name. They are not hoisted, and 
+must be defined before using them.
+Q4a. What is an arrow function?
+A4a. An arrow function is a function expression, but does not have its own `this`, `arguments`
+or `new.target`.
