@@ -17,119 +17,87 @@ class Desktop {
 			}
 		}
 
-		this.elem.onmousemove = (event) => {
-			if(this.selectedItem &&
-				this.selectedItem.posx + event.movementX < this.elem.offsetWidth && this.selectedItem.posx + event.movementX > 0 &&
-				this.selectedItem.posy + event.movementY < this.elem.offsetHeight && this.selectedItem.posy + event.movementY > 0) {
-				this.selectedItem.move(event.movementX, event.movementY);
-			} else {
-				this.selectedItem = null
-			}
-		}
-		this.elem.onmouseleave = () => {
-			this.selectedItem = null
-		}
-		this.elem.onmouseup = () => {
-			this.selectedItem = null
-		}
+		window.addEventListener('mouseup', () => {
+			this.selectedItem = null;
+		});
 	}
 
 	addItem(item) {
 		this.elem.appendChild(item.elem);
-		if(item.constructor.name === 'Window') {
-			item.header.onmousedown = () => {
-				this.selectedItem = item;
-				item.changez(this.windowz++);
-				/*
-				for(let other of this.items) {
-					if (other != item) {
-						other.elem.changez(other.elem.style.zIndex - 1);
-					}
-				}
-				*/
-			}
-		} else {
-			item.elem.onmousedown = () => {
-				this.selectedItem = item;
-				item.changez(this.z++);
-				/*
-				for(let other of this.items) {
-					if (other != item) {
-						other.elem.changez(other.elem.style.zIndex - 1);
-					}
-				}
-				*/
-			}
-		}
-		if(item.constructor.name === 'Folder'){
-			item.elem.ondblclick = (event) => {
-				this.addItem(item.getWindow(400, 200, this.windowz++));
-			}
-		}
-		if(item.constructor.name === 'Window') {
-			item.elem.onkeydown = (event) => {
-				if (event.keyCode == 27) {
-					item.close();
-				}
-			}
-			item.closebtn.onclick = () => {
-				item.close();
-			}
-		}
 		this.items.push(item);
+	}
+	removeItem(item) {
+		this.elem.removeChild(item.elem);
+		this.items.splice(this.items.indexOf(item), 1);
 	}
 };
 
 class Item {
 	constructor(width, height, posx, posy, zIndex) {
-		this.width = width ? width : 20;
-		this.height = height ? height : 20;
-		this.posx = posx ? posx : this.width/2;
-		this.posy = posy ? posy : this.height/2;
-		this.zIndex = zIndex ? zIndex : 0;
-		this.elem = this.getelem();
+		this.clientX = null;
+		this.clientY = null;
+		this.elem = this.getelem(width, height, posx, posy, zIndex);
+
+		this.elem.onmousedown = (event) => {
+			myDesktop.selectedItem = this;
+			this.elem.style.zIndex = myDesktop.z++
+			this.clientX = event.clientX;
+			this.clientY = event.clientY;
+		}
+		this.elem.onmouseup = () => {
+			myDesktop.selectedItem = null;
+			this.clientX = null;
+			this.clientY = null;
+		}
+		window.addEventListener('mousemove', (event) => {
+			if(this == myDesktop.selectedItem) {
+				this.move(event.clientX - this.clientX, event.clientY - this.clientY);
+			}
+		});
 	}
 	
-	get pos() {
-		return [this.posx, this.posy];
-	}
-	getelem() {
+	getelem(width, height, posx, posy, zIndex) {
 		let elem = document.createElement('span');
 		elem.classList.add('item');
-		elem.style.width = this.width + 'px';
-		elem.style.height = this.height + 'px';
-		elem.style.left = (this.posx - this.width/2) + 'px';
-		elem.style.top = (this.posy - this.height/2) + 'px';
-		elem.style.zIndex = this.zIndex;
-		// disable browser drag and drop
+		elem.style.width = width + 'px';
+		elem.style.height = height + 'px';
+		elem.style.left = (posx - width/2) + 'px';
+		elem.style.top = (posy - height/2) + 'px';
+		elem.style.zIndex = zIndex;
 		elem.ondragstart = () => { return false; };
 		elem.tabIndex = 0;
 		return elem;
 	}
 	move(deltax, deltay) {
-		this.posx += deltax;
-		this.posy += deltay;
-		this.elem.style.left = this.posx - this.width/2 + 'px';
-		this.elem.style.top = this.posy - this.height/2 + 'px';
-	}
-	changez(newz) {
-		this.zIndex = newz;
-		this.elem.style.zIndex = newz;
-	}
-	resize(newW, newH) {
-		let movex = 0;
-		if (newW != this.width) {
-			this.width = newW;
-			this.elem.style.width = newW + 'px';
-			movex = this.width/2;
+		let offsetx = this.elem.offsetLeft + this.elem.offsetWidth/2 + deltax;
+		if(offsetx >= this.elem.parentNode.offsetWidth) {
+			this.elem.style.left = this.elem.parentNode.offsetWidth - this.elem.offsetWidth/2 + 'px';
+			this.clientX = (deltax + this.clientX) - (offsetx - this.elem.parentNode.offsetWidth);
+		} else if(offsetx <= 0) {
+			this.elem.style.left = 0 - this.elem.offsetWidth/2 + 'px';
+			this.clientX = (deltax + this.clientX) - (offsetx - 0);
+		} else {
+			this.elem.style.left = (this.elem.offsetLeft + deltax) + 'px';
+			this.clientX = deltax + this.clientX;
 		}
-		let movey = 0;
-		if (newH != this.height) {
-			this.height = newH;
-			this.elem.style.height = newH + 'px';
-			movey = this.height/2
+
+		let offsety = this.elem.offsetTop + this.elem.offsetHeight/2 + deltay;
+		if(offsety >= this.elem.parentNode.offsetHeight) {
+			this.elem.style.top = this.elem.parentNode.offsetHeight - this.elem.offsetHeight/2 + 'px';
+			this.clientY = (deltay + this.clientY) - (offsety - this.elem.parentNode.offsetHeight);
+		} else if(offsety <= 0) {
+			this.elem.style.top = 0 - this.elem.offsetHeight/2 + 'px';
+			this.clientY = (deltay + this.clientY) - (offsety - 0);
+		} else {
+			this.elem.style.top = (this.elem.offsetTop + deltay) + 'px';
+			this.clientY = deltay + this.clientY;
 		}
-		this.move(movex, movey);
+
+		
+		// if(offsety < this.elem.parentNode.offsetHeight && offsety > 0) {
+		// 	this.elem.style.top = (this.elem.offsetTop + deltay) + 'px';
+		// 	this.clientY = deltay + this.clientY;
+		// }
 	}
 }
 
@@ -137,10 +105,8 @@ class Icon extends Item {
 	constructor(width, height, posx, posy, zIndex, iconname, iconimg) {
 		super(width, height, posx, posy, zIndex);
 		this.elem.classList.add('icon');
-		this.iconname = iconname;
-		this.iconimg = iconimg;
-
-		this.elem.innerHTML = this.iconname;			
+		this.elem.innerHTML = iconname;
+		// set icon image
 	}
 };
 
@@ -149,98 +115,83 @@ class Folder extends Icon {
 		super(width, height, posx, posy, zIndex, iconname, 'folder');
 		this.elem.classList.add('folder');
 		this.items = items;
-		// set initial window opening position here
-		this.window = new Window(null, null, this.posx, this.posy, zIndex, this.items);
+
+		this.elem.ondblclick = () => {
+			if(!this.window || !this.window.open) {
+				myDesktop.addItem(this.getWindow(400, 200, myDesktop.windowz++));
+				this.window.open = true;
+			}
+			this.window.elem.focus();
+		}
 	}
 
 	getWindow(width, height, zIndex) {
-		this.window.resize(width, height);
-		this.window.changez(zIndex);
+		let posx = this.elem.offsetWidth/2 + this.elem.offsetLeft + width/2;
+		let posy = this.elem.offsetHeight/2 + this.elem.offsetTop + height/2;
+		this.window = new Window(width, height, posx, posy, zIndex, this.items);
+		this.window.elem.style.zIndex = zIndex;
 		return this.window;
 	}
-	move(deltax, deltay) {
-		this.posx += deltax;
-		this.posy += deltay;
-		this.elem.style.left = this.posx - this.width/2 + 'px';
-		this.elem.style.top = this.posy - this.height/2 + 'px';
-	}
 };
+
 
 class Window extends Item {
 	constructor(width, height, posx, posy, zIndex, items) {
 		super(width, height, posx, posy, zIndex);
 		this.elem.classList.add('window');
-		this.header = this.getheader();
-		this.closebtn = this.header.firstChild;
-		this.elem.appendChild(this.header);
+		this.elem.appendChild(this.getheader());
+		this.open = false;
 		this.items = [];
+
+		
+		// close window when escape key is pressed
+		this.elem.onkeydown = (event) => {
+			if (event.keyCode == 27) {
+				myDesktop.removeItem(this);
+				this.open = false;
+			}
+		}
+		this.elem.onmousedown = null;
 
 		this.selectedItem;
 		this.z = 1;
-		this.windowz = 1000;
 		if(Array.isArray(items)) {
 			for(let item of items) {
 				this.addItem(item);
 			}
 		}
 
-		this.elem.onmousemove = (event) => {
-			if(this.selectedItem &&
-				this.selectedItem.posx + event.movementX < this.elem.offsetWidth && this.selectedItem.posx + event.movementX > 0 &&
-				this.selectedItem.posy + event.movementY < this.elem.offsetHeight && this.selectedItem.posy + event.movementY > 0) {
-				this.selectedItem.move(event.movementX, event.movementY);
-			} else {
-				this.selectedItem = null
-			}
-		}
-		this.elem.onmouseleave = () => {
-			this.selectedItem = null
-		}
-		this.elem.onmouseup = () => {
-			this.selectedItem = null
-		}
+		window.addEventListener('mouseup', () => {
+			this.selectedItem = null;
+		});
 	}
 
 	getheader() {
 		let header = document.createElement('div');
 		header.classList.add('header');
+		header.onmousedown = (event) => {
+			myDesktop.selectedItem = this;
+			this.elem.style.zIndex = myDesktop.windowz++;
+			this.clientX = event.clientX;
+			this.clientY = event.clientY
+		}
+
 		let closebtn = document.createElement('button');
-		closebtn.innerHTML = 'X';
 		closebtn.classList.add('closebtn');
+		closebtn.innerHTML = 'X';
+		closebtn.onclick = () => {
+			myDesktop.removeItem(this);
+			this.open = false;
+		}
 		header.appendChild(closebtn);
 		return header;
 	}
-	close() {
-		this.elem.parentNode.removeChild(this.elem);
-	}
 	addItem(item) {
 		this.elem.appendChild(item.elem);
-		if(item.constructor.name === 'Window') {
-			item.header.onmousedown = () => {
-				this.selectedItem = item;
-				item.changez(this.windowz++);
-			}
-		} else {
-			item.elem.onmousedown = () => {
-				this.selectedItem = item;
-				item.changez(this.z++);
-			}
-		}
-		if(item.constructor.name === 'Folder'){
-			item.elem.ondblclick = (event) => {
-				this.addItem(item.getWindow(400, 200, this.windowz++));
-			}
-		}
-		if(item.constructor.name === 'Window') {
-			item.elem.onkeydown = (event) => {
-				if (event.keyCode == 27) {
-					item.close();
-				}
-			}
-			item.closebtn.onclick = () => {
-				item.close();
-			}
-		}
 		this.items.push(item);
+	}
+	removeItem(item) {
+		this.elem.removeChild(item.elem);
+		this.items.splice(this.items.indexOf(item), 1);
 	}
 };

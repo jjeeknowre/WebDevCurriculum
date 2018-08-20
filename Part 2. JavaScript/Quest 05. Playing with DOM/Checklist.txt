@@ -7,7 +7,7 @@ A1a. To remove a CSS class in IE9 or older browsers, you can 1) edit the classNa
 using `replace` and regular expressions or if using jQuery framework, you can use jQuery functions 
 `addClass`, `removeClass`, and `toggleClass`.
 
-Q2.What are the scope of Javascript variables?
+Q2.What are the scopes of Javascript variables?
 A2. Javascript has three scopes: global, block, and function.
 var/let/const declared variables are global if they declared outside of functions/blocks
 If they are declared in a function, they belong to that function's scope.
@@ -17,4 +17,4 @@ Additionally, let declared variables are also block-level scoped if declared in 
 Q2a. How are let and var variables different?
 A2a. Let variables cannot be declared more than once in the same scope
 Let variables are not initialized until they are defined. Var variables are 
-always initialized with the value undefined when hoisted.https://www.facebook.com/events/181822582557136/
+always initialized with the value undefined when hoisted.
