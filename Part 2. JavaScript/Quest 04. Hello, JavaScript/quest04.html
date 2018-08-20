@@ -4,18 +4,28 @@
         let input = prompt("input an integer", "");
         if (!isNaN(input)) {
             console.log('valid');
-            let num = parseInt(input);
-            let max = num * 2 - 1;
-            let str = '';
-            for (let i = 0; i < num; i++) {
-                let arr = new Array(max).fill('*');
-                for (let j = 0; j < (max - (i * 2) - 1)/2; j++) {
-                    arr[j] = ' ';
-                    arr[max - j - 1] = ' ';
+            let num = Number(input);
+            // let max = num * 2 - 1;
+            // let str = '';
+            // for (let i = 0; i < num; i++) {
+            //     let arr = new Array(max).fill('*');
+            //     for (let j = 0; j < (max - (i * 2) - 1)/2; j++) {
+            //         arr[j] = ' ';
+            //         arr[max - j - 1] = ' ';
+            //     }
+            //     str = str + arr.join('') + '\n';
+            // }
+            // console.log(str);
+            function printChar(char, num) {
+                let strToPrint = '';
+                for(let i = 0; i < num; i++) {
+                    strToPrint += char;
                 }
-                str = str + arr.join('') + '\n';
+                return strToPrint;
             }
-            console.log(str);
+            for(let i = 1; i <= num; i++) {
+                console.log(printChar(' ', Math.floor((num - i) / 2)) + printChar('*', i));
+            }
         } else {
             console.log('invalid');
         }
