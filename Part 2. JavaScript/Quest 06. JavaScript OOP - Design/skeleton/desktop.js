@@ -151,7 +151,9 @@ class Window extends Item {
 				this.open = false;
 			}
 		}
-		this.elem.onmousedown = null;
+		this.elem.onmousedown = () => {
+			this.elem.style.zIndex = myDesktop.windowz++;
+		};
 
 		this.selectedItem;
 		this.z = 1;
