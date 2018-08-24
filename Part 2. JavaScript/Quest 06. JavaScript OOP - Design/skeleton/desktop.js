@@ -92,12 +92,6 @@ class Item {
 			this.elem.style.top = (this.elem.offsetTop + deltay) + 'px';
 			this.clientY = deltay + this.clientY;
 		}
-
-		
-		// if(offsety < this.elem.parentNode.offsetHeight && offsety > 0) {
-		// 	this.elem.style.top = (this.elem.offsetTop + deltay) + 'px';
-		// 	this.clientY = deltay + this.clientY;
-		// }
 	}
 }
 
