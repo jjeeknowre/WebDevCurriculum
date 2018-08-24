@@ -1,0 +1,20 @@
+Q1. How does the internet work? Explain using the OSI 7 Layer.
+A1.
+7. Application - the layer that the user interacts with
+6. Presentation - the layer that the operating system works, transforms data
+into a form that the application data can accept
+5. Session - the layer that creates a session between two devices and facilitates
+the connection between two devices
+4. Transport - Provides transfer of data between two devices and is responsible
+for that data to be received completely
+3. Network - The layer that routers and switches work out of (IP addresses)
+Responsible for addressing, error handling, congestion, and packet control
+2. Datalink - The layer that corresponds to the delivery of data at the same level
+of a network
+1. Physical - The literal physical objects that link the devices together
+
+Q2. When we type in the domain www.knowre.com, how do we get Knowre's 
+server address?
+A2. Our browser/device makes a request to get the server address to its 
+Domain Name Server (DNS). The DNS then supplies the server address to our 
+device.
