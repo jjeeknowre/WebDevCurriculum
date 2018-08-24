@@ -1,0 +1,16 @@
+Q1. How does node.js work?
+A1. node.js is javascript runtime environment that runs on V8, Chrome's javascript engine.
+    Q1a. How do you use the `require()` function.
+    A1a. In the main module, you can type `require` with the filename and path as the argument.
+    In the module, you must export the variables/functions/objects in the code that you want
+    to be available for use for other modules to use.
+    Q1b. How do `module.exports` and `exports` differ?
+    A1b. We can think of `module.exports` as the variable that gets returned from `require`
+    and `exports` as a reference to `module.exports` as an convenience variable
+
+Q2. What is npm?
+A2. npm stands for node package manager. It is javascript's package manager and comes bundled with
+node.js. No node.js is required. It makes it easier for developers to share and use code.
+    Q2a. How is it different when using -g (Global) on npm packages?
+    A2a. When using the option `-g`, the module is installed globally on the device, but will not
+    be added to your projects' dependencies
