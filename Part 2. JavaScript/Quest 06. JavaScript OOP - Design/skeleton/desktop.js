@@ -1,8 +1,8 @@
 class Desktop {
 	constructor(elem, items, width, height) {
 		this.elem = elem;
-		this.width = width ? width : 1200;
-		this.height = height ? height : 700;
+		width = width ? width : 1200;
+		height = height ? height : 700;
 		this.elem.style.width = width + 'px';
 		this.elem.style.height = height + 'px';
 		this.elem.style.zIndex = 0;
@@ -18,7 +18,7 @@ class Desktop {
 		}
 
 		window.addEventListener('mouseup', () => {
-			this.selectedItem = null;
+			this.selectedItem = null;			
 		});
 	}
 
@@ -43,11 +43,6 @@ class Item {
 			this.elem.style.zIndex = myDesktop.z++
 			this.clientX = event.clientX;
 			this.clientY = event.clientY;
-		}
-		this.elem.onmouseup = () => {
-			myDesktop.selectedItem = null;
-			this.clientX = null;
-			this.clientY = null;
 		}
 		window.addEventListener('mousemove', (event) => {
 			if(this == myDesktop.selectedItem) {
