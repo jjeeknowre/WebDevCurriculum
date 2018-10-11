@@ -1,0 +1,19 @@
+Q1. How are HTTP GET and POST methods different?
+A1. GET methods request data from the server, whereas a POST method
+requests that the web server accept the data given from the client.
+    Q1a. What are the other HTTP methods?
+    A1a. Other HTTP methods are PUT, DELETE, HEAD, TRACE, OPTIONS, and PATCH.
+
+Q2. How do you send data to the HTTP server via GET and POST?
+    Q2a. What is the Content-Type header of an HTTP request?
+    A2a. The Content-Type header of an HTTP request tells the server the media type of
+    the resource that is sent to the server
+    Q2b. What are the different ways POST requests are sent from Postman
+    (form-data, x-www-form-urlencoded, raw, binary)?
+    A2b. These are the four Form content types defined by W3C.
+    x-www-form-unrlencoded is for simple text or ASCII data.
+    raw is for plain text or JSON, or a simple string.
+    binary is used for send non-textual resources such as video, audio, images, etc.
+    form-data is for non-ASCII data or large binary data.
+
+    
