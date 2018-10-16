@@ -43,17 +43,18 @@ app.post('/foo', (res) => {
 let filedir = './client/filedir'; // code doesn't work when directory is named 'files' (same as API)
 app.get('/files', (req, res) => {
 	fs.readdir(filedir, 'utf8', (err, files) => {
-		res.send(files)
-		//res.send(JSON.stringify(files));
+		res.send(JSON.stringify(files));
 	});
 });
 app.get('/files/:filename', (req, res) => {
 	let filepath = filedir + '/' + req.params.filename;
 	fs.stat(filepath, (err) => {
 		if (!err) {
-			fs.readFile(filepath, 'utf8', (err, text) => res.send(text));
+			fs.readFile(filepath, 'utf8', (err, text) => {
+				res.status(200).send(JSON.stringify({ text: text }));
+			});
 		} else {
-			res.send('no such file exists');
+			res.status(400).send(JSON.stringify({ message: 'no such file exists' }));
 		}
 	});
 });
@@ -62,10 +63,10 @@ app.post('/files', (req, res) => {
 	console.log(req.body);
 	fs.stat(filepath, (err) => {
 		if (!err) {
-			res.send(`the file ${req.body.name} already exists`);
+			res.status(400).send(JSON.stringify({ message: `the file ${req.body.name} already exists` }));
 		} else {
 			fs.writeFile(filepath, req.body.text, 'utf8', (err) => {
-				res.send(`the file ${req.body.name} was created`);
+				res.status(200).send(JSON.stringify({ message: `the file ${req.body.name} was created` }));
 			});
 		}
 	});
@@ -75,10 +76,10 @@ app.put('/files/:filename', (req, res) => {
 	fs.stat(filepath, (err) => {
 		if (!err) {
 			fs.writeFile(filepath, req.body.text, 'utf8', (err) => {
-				res.send(`the file ${req.params.filename} was saved`);
+				res.status(200).send(JSON.stringify({ message: `the file ${req.params.filename} was saved` }));
 			});
 		} else {
-			res.send(`the file ${req.body.name} does not exist`);
+			res.status(400).send(JSON.stringify({ message: `the file ${req.body.name} does not exist` }));
 		}
 	});
 });
@@ -86,11 +87,11 @@ app.delete('/files/:filename', (req, res) => {
 	let filepath = filedir + '/' + req.params.filename;
 	fs.stat(filepath, (err) => {
 		if (!err) {
-			fs.unlink(filepath, req.body.text, 'utf8', (err) => {
-				res.send(`the file ${req.params.filename} was deleted`);
+			fs.unlink(filepath, (err) => {
+				res.status(200).send(JSON.stringify({ message: `the file ${req.params.filename} was deleted` }));
 			});
 		} else {
-			res.send(`the file ${req.body.name} does not exist`);
+			res.status(400).send(JSON.stringify({ message: `the file ${req.body.name} does not exist` }));
 		}
 	});
 });

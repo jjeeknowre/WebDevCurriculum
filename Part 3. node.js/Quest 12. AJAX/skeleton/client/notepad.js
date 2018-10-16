@@ -92,6 +92,8 @@ class TabBar {
 		});
 		window.addEventListener('closetab', () => {
 			if (this.selected !== -1) {
+				let event = new CustomEvent('closefile', { detail: this.tabs[this.selected].name });
+				window.dispatchEvent(event);
 				this.closeTab(this.tabs[this.selected]);
 			}
 		});
@@ -102,10 +104,10 @@ class TabBar {
 			}
 		});
 		window.addEventListener('opentab', (event) => {
-			fetch(`./files/${event.detail}`, { method: 'GET' })
-				.then(res => res.text())
-				.then((filetext) => {
-					let newTab = new Tab(event.detail, filetext);
+			fetch(`./files/${event.detail}`, { method: "GET" })
+				.then(res => res.json())
+				.then((data) => {
+					let newTab = new Tab(event.detail, data.text);
 					if (this.opentabs.indexOf(newTab.name) === -1) {
 						this.addTab(newTab);
 					}
@@ -138,7 +140,7 @@ class TabBar {
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ name: newTab.name, text: '' })
 			})
-			.then(res => res.text());
+			.then(res => res.json());
 			this.addTab(newTab);
 			
 			let event2 = new CustomEvent('selecttab', { detail: newTab });
@@ -180,15 +182,20 @@ class FileList {
 			})
 			.catch(err => console.log(err));
 
-		window.addEventListener('closetab', () => {
+		window.addEventListener('closefile', (event) => {
 			for (let file of this.elem.childNodes[0].childNodes) {
-				file.classList.remove('opened');
+				if (file.innerHTML === event.detail) {
+					file.classList.remove('opened');
+					break;
+				}
 			}
 			this.elem.childNodes[0].childNodes[this.selected].classList.add('selected');
 		});
 		window.addEventListener('newfile', () => {
-			this.elem.childNodes[0].childNodes[this.selected].classList.remove('opened');
-			this.elem.childNodes[0].childNodes[this.selected].classList.remove('selected');
+			if (this.selected !== -1) {
+				this.elem.childNodes[0].childNodes[this.selected].classList.remove('opened');
+				this.elem.childNodes[0].childNodes[this.selected].classList.remove('selected');
+			}
 			this.selected = this.files.length;
 			this.newFile(event.detail.name);
 			this.elem.childNodes[0].childNodes[this.selected].classList.remove('selected');
@@ -208,9 +215,6 @@ class FileList {
 		openBtn.onclick = () => {
 			if (this.selected !== -1) {
 				this.elem.childNodes[0].childNodes[this.selected].classList.remove('selected');
-				for (let file of this.elem.childNodes[0].childNodes) {
-					file.classList.remove('opened');
-				}
 				this.elem.childNodes[0].childNodes[this.selected].classList.add('opened');
 				let event = new CustomEvent('opentab', { detail: this.files[this.selected] });
 				window.dispatchEvent(event);
@@ -226,6 +230,7 @@ class FileList {
 				let event = new CustomEvent('deletetab', { detail: file.innerHTML });
 				window.dispatchEvent(event);
 				this.elem.childNodes[0].removeChild(file);
+				this.files.splice(this.files.indexOf(file.innerHTML), 1);
 				fetch(`./files/${file.innerHTML}`, { method: "DELETE" })
 					.then(res => res.json());
 				this.selected = -1;
