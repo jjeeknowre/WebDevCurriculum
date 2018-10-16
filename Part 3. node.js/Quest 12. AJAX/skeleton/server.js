@@ -1,9 +1,7 @@
 const express = require('express'),
 	path = require('path'),
 	app = express()
-	EventEmitter = require('events')
 	fs = require('fs');
-const emitter = new EventEmitter();
 
 app.use(express.static('client'));
 app.use(express.json());
