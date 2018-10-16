@@ -1,0 +1,18 @@
+Q1. What do we do when we do not know when Javascript code inside of
+user events, methods, HTTP requests, are executed?
+A1. <unsure of this answer>
+
+Q2. What is the browser's XMLhttpRequest object, and how does it work?
+A2. The XMLHttpRequest object allows the browser to interact with servers
+without requiring the browser to do a full page refresh. This enables a 
+Web page to update without interrupting what the user is doing on the page.
+It supports other data types besides XML, and also supports other protocols
+such as ftp. 
+
+Q3. What is the fetch API, and how does it work?
+A3. The fetch API is a promised based HTTP request API. 
+The fetch method takes one required argument, the path/address to the
+resource that the browser is trying to access. It then returns a Promise
+object which signifies either a success or failure to get the resource.
+When a response is retrieved, methods like 'then' and 'catch' can be 
+called to handle the data from the server.

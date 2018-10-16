@@ -1,3 +1,114 @@
 * {
 	/* TODO: 필요한 CSS를 채워넣어 보세요! */
 }
+
+.selected {
+	background-color: lightgray;
+}
+
+/* notepad */
+#notepad {
+	display: grid;
+	width: 1400px;
+	grid-template-areas:
+	"tabbar tabbar tabbar ."
+	"textarea textarea textarea filelist"
+	" . . buttons ."
+	;
+	grid-template-columns: 3fr 3fr 3fr 1fr;
+	grid-template-rows: auto 500px 30px;
+}
+
+
+/* textarea */
+.textarea {
+	grid-area: textarea;
+	resize: none;
+	border: 1px solid gray;
+}
+
+/* tabbar */
+.tabbar {
+	grid-area: tabbar;
+	display: flex;
+}
+.addtabbtn {
+	flex: 0 0 auto;
+	align-self: top;
+	margin: 3px 0px;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+}
+.tablist {
+	align-self: center;
+	padding-inline-start: 0;
+	display: flex;
+	flex-flow: row wrap;
+	font-size: 12px;
+	margin: 0;
+}
+.tab {
+	flex: 0 0 auto;
+	list-style-type: none;
+	margin: 3px;
+	padding: 3px 5px;
+	border: 1px solid black;
+}
+
+/* filelist */
+.filelist {
+	display: flex;
+	flex-flow: column nowrap;
+	margin: 0px 3px;
+	border: 1px solid gray;
+	max-height: 500px;
+	grid-area: filelist;
+	padding-inline-start: 0;
+}
+.list {
+	flex: 1 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	padding-inline-start: 0;
+}
+.list > li {
+	list-style-type: none;
+	padding: 1px 5px;
+}
+.openbtn {
+	flex: 0 0 25px;
+	margin: 0px 5px;
+	padding: 2px;
+}
+.deletebtn {
+	flex: 0 0 25px;
+	margin: 5px;
+	padding: 2px;
+}
+
+/* buttonlist */
+.buttonlist {
+	grid-area: buttons;
+	justify-self: end;
+	align-self: center;
+	display: flex;
+	flex-flow: row nowrap;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+}
+.buttonlist > button {
+	width: 75px;
+	padding: 2px;
+}
+.close {
+	margin: 0px 5px;
+}
+
+.opened {
+	background-color: gray;
+}
