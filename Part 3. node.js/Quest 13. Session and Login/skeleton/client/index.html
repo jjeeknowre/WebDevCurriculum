@@ -5,10 +5,38 @@
 		<link rel="stylesheet" href="/style.css">
 		<script src="/notepad.js"></script>
 	</head>
-	<body>
-		<!-- TODO: 이 곳을 채워 클라이언트를 만들어 보세요 -->
+	<body id='body'>
 		<script>
-			let notepad = new Notepad();
+			let user = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+			let body = document.getElementById('body');
+			let notepadDOM = document.createElement('section');
+			notepadDOM.id = 'notepad';
+
+			if (!user) {
+				let loginDOM = document.createElement('form');
+				loginDOM.id = 'login';
+				body.appendChild(loginDOM);
+				let login = new Login();
+				let loginPromise = new Promise((resolve, reject) => {
+					let checklogin = () => {
+						if (login.user) {
+							user = login.user;
+							resolve('successful login');
+						} else {
+							setTimeout(checklogin, 100);
+						}
+					}
+					setTimeout(checklogin, 100);
+				});
+				loginPromise.then(error => {
+					login.close();
+					body.appendChild(notepadDOM);
+					let notepad = new Notepad();
+				}).catch(error => { console.log(error) });
+			} else {
+				body.appendChild(notepadDOM);
+				let notepad = new Notepad();
+			}
 		</script>
 	</body>
 </html>
