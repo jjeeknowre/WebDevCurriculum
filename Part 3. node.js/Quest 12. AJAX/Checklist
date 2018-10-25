@@ -16,3 +16,10 @@ resource that the browser is trying to access. It then returns a Promise
 object which signifies either a success or failure to get the resource.
 When a response is retrieved, methods like 'then' and 'catch' can be 
 called to handle the data from the server.
+
+Q3a. What does the Promise object in Javascript, and what does it do?
+A3a.
+
+Q3b. What does the async and await keywords do in Javascript, and how
+do you use them?
+A3b.
