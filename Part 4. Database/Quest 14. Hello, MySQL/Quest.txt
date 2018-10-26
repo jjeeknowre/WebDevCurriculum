@@ -1,0 +1,19 @@
+CREATE TABLE 'Users' (
+  'id' INT NOT NULL,
+  'username' VARCHAR(45) NULL,
+  'password' VARCHAR(45) NULL,
+  'salt' VARCHAR(45) NULL,
+  PRIMARY KEY ('id'));
+
+
+CREATE TABLE 'Files' (
+  'id' INT NOT NULL,
+  'filename' VARCHAR(45) NULL,
+  'filetext' LONGTEXT NULL,
+  PRIMARY KEY ('id'));
+
+CREATE TABLE 'Tabs' (
+  'id' INT NOT NULL,
+  'filename' VARCHAR(45) NULL,
+  'cursor' INT NULL,
+  PRIMARY KEY ('id'));

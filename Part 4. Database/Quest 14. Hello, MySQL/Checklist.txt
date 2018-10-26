@@ -1,0 +1,24 @@
+Q1. How do you design a RDBMS to store an array with an unknown length?
+A1.
+
+Q2. What is database normalization?
+A2. Normalization is a technique of organizing the data into multiple related
+tables in order to minimize data redundancy.
+1NF: Each column should contain only one value. A column should contain values of
+the same type, each column name should be unique.
+2NF: A table should not have partial dependency (a column is only dependent on one
+primary key in a many to many table)
+3NF: A table should not have transitive dependency (a column is dependent on a column
+that is not the primary key)
+4NF: A table should not have multi-valued dependency
+
+Q3. What are the MySQL engines?
+A3. InnoDB, MyISAM, Memory, CSV, Archive, Blackhole, NDB, Merge, Federated, 
+and Example
+
+Q4. What is table indexing in RDBMS? What does it do, and how does it work?
+A4. Table indexing is how the database indexes its tables to quickly access data
+
+Q5. Why is it possible to authenticate a user's password without having to 
+store the user's password in plain text in the database?
+A5. One way hashing enables us to store passwords on a database
