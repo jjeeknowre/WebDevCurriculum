@@ -1,0 +1,13 @@
+Q1. What is a cookie?
+A1. A cookie is a raw string of information stored on the browser that is sent
+to the server on every request. It is first sent from the server to the browser.
+
+Q1a. How does a cookie work?
+A1a. 
+
+Q1b. How do cookies exchange information between the server and the client?
+A1b. 
+
+
+Q2. What is a web application session?
+A2. Where and how are the contents of the session stored?
