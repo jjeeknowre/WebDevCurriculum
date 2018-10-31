@@ -1,0 +1,15 @@
+Q1. What are the advantages and disadvantages of using an ORM than not using one?
+A1. Advantages: ORM's reduce the amount of code needed to be written, and makes code 
+easier to read by not requiring the use of SQL code (for the most part). 
+Disadvantages: designing a database around an ORM sometime results in poor database design. 
+It is not always possible to match a relational database to an object system. Might be slow
+when doing complicated queries. Javascript relates data using objects, whereas databases link
+them using foreign keys.
+
+Q2. What are the 1:1, 1:N, and N:M reationships between models and when do you use them?
+A2. 1:1 refers to a one to one relationship when one occurrence of an entry in a database
+relates to only one occurence of another.
+1:N refers to a one to many relationship, where one occurence relates to many others in a database
+M:N refers to a many to many relationsip where entities on both sides of the relationship can relate
+to more than one (on the other side).
+These relationships are used for database design on design how tables relate to each other

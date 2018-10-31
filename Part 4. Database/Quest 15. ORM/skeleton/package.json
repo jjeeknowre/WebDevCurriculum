@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "cookie-parser": "^1.4.3",
+    "express": "*",
+    "express-session": "^1.15.6",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.41.0"
+  }
+}
