@@ -1,0 +1,12 @@
+Q1. What kind of features does the web framework Vue.js have?
+A1. Vue is a progressive framework which is inspired by the MVVM model. 
+Vue also is reactive, so that all the data in the view updates when that 
+data value is changed in the model.
+
+Q2. What are components in Vue.js?
+A2. Each component in Vue has its own CCS, JS, and HTML. 
+
+
+Q3. How does unidirectional binding and bidirectional binding
+differ between components, and what are their pros and cons?
+A3.

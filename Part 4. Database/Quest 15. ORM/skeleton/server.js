@@ -29,7 +29,7 @@ const connection = new Sequelize('joshtest', 'root', 'rhatpakflrk', {
 });
 
 let File = connection.define('File', {
-	filename: {
+	name: {
 		primaryKey: true,
 		type: Sequelize.STRING,
 		unique: true,
@@ -38,7 +38,7 @@ let File = connection.define('File', {
 			len: [4, 100]
 		}
 	},
-	filetext: {
+	text: {
 		type: Sequelize.TEXT,
 		defaultValue: ''
 	}
@@ -162,17 +162,15 @@ app.get('/files', (req, res) => {
 		return res.status(200).send(JSON.stringify(files));
 	});
 });
-app.get('/files/:filename', (req, res) => {
+app.get('/files/:filename', async (req, res) => {
 	if (!session.user) { return res.status(401).send(JSON.stringify({ message: 'please login' })); }
-	File.findOne({
-		where: { filename: req.params.filename },
-	}).then(file => {
-		if (file) {
-			return res.status(200).send(JSON.stringify(file.toJSON()));
-		} else {
-			return res.status(400);
-		}
-	});
+
+	try {
+		let myFile = await File.findOne({ where: { name: req.params.filename }});
+		res.status(200).send(JSON.stringify(myFile.toJSON()));
+	} catch (e) {
+		res.status(500).send(e);
+	}
 });
 app.post('/files', (req, res) => {
 	if (!session.user) { return res.status(401).send(JSON.stringify({ message: 'please login' })); }
@@ -184,7 +182,7 @@ app.post('/files', (req, res) => {
 });
 app.put('/files/:filename', (req, res) => {
 	if (!session.user) { return res.status(401).send(JSON.stringify({ message: 'please login' })); }
-	File.update(req.body, { where: { filename: req.params.filename } }).then(() => {
+	File.update(req.body, { where: { name: req.params.filename } }).then(() => {
 		res.status(200).send(JSON.stringify({ message: `the file ${req.params.filename} was saved` }));
 	}).catch(() => {
 		res.status(400).send(JSON.stringify({ message: `the file ${req.body.name} does not exist` }));

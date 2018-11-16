@@ -181,11 +181,11 @@ class Tab {
 		return fetch(`./files/${this.name}`, { method: "GET" })
 		.then(res => res.json())
 		.then((data) => {
-			this.text = data.filetext;
+			this.text = data.text;
 			if (this.cursor === null) {
-				this.cursor = data.filetext.length;
+				this.cursor = data.text.length;
 			}
-			return data.filetext;
+			return data.text;
 		});
 	}
 }
@@ -209,7 +209,7 @@ class TabBar {
 				fetch(`./files/${tab.name}`, {
 					method: "PUT",
 					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ filename: tab.name, filetext: tab.text })
+					body: JSON.stringify({ name: tab.name, text: tab.text })
 				})
 				.then(res => res.json());
 			}
@@ -231,7 +231,7 @@ class TabBar {
 			fetch(`./files/${event.detail}`, { method: "GET" })
 				.then(res => res.json())
 				.then((data) => {
-					let newTab = new Tab(event.detail, data.filetext);
+					let newTab = new Tab(event.detail, data.text);
 					if (this.opentabs.indexOf(newTab.name) === -1) {
 						this.addTab(newTab);
 					}
@@ -294,7 +294,7 @@ class TabBar {
 				fetch('./files', {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ filename: newTab.name, filetext: '' })
+					body: JSON.stringify({ name: newTab.name, text: '' })
 				})
 					.then(res => res.json())
 					.catch(error => {
@@ -343,7 +343,7 @@ class FileList {
 			})
 			.then(data => {
 				data.forEach(file => {
-					this.newFile(file.filename);
+					this.newFile(file.name);
 				});
 			})
 			.catch(err => console.log(err));

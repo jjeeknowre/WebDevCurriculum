@@ -28,6 +28,10 @@ class Matrix {
 		this.elem.appendChild(answerZone.elem);
 		this.elem.appendChild(scoreBoard.elem);
 
+		this._createEvents();
+	}
+
+	_createEvents() {
 		this.elem.addEventListener('selectItem', (event) => {
 			this.removeItem(event.detail);
 			if (event.detail instanceof Operand) {
@@ -36,8 +40,8 @@ class Matrix {
 				answerZone.addOperator(event.detail.value);
 			}
 			let value = answerZone.calc();
-			console.log(parseInt(answerZone.currentTarget()));
-			if (value === parseInt(answerZone.currentTarget())) {
+			console.log(Number(answerZone.currentTarget()));
+			if (value === Number(answerZone.currentTarget())) {
 				scoreBoard.addPoints(value);
 				answerZone.reset();
 			} else if (value !== null) {
@@ -161,10 +165,10 @@ class MoveableItem {
 		let deltax = event.clientX - this.clientX;
 		let deltay = event.clientY - this.clientY;
 		let offsetx = this.elem.offsetLeft + this.elem.offsetWidth/2 + deltax;
-		if(offsetx >= this.elem.parentNode.offsetWidth) {
+		if (offsetx >= this.elem.parentNode.offsetWidth) {
 			this.elem.style.left = this.elem.parentNode.offsetWidth - this.elem.offsetWidth/2 + 'px';
 			this.clientX = (deltax + this.clientX) - (offsetx - this.elem.parentNode.offsetWidth);
-		} else if(offsetx <= 0) {
+		} else if (offsetx <= 0) {
 			this.elem.style.left = 0 - this.elem.offsetWidth/2 + 'px';
 			this.clientX = (deltax + this.clientX) - (offsetx - 0);
 		} else {
@@ -173,7 +177,7 @@ class MoveableItem {
 		}
 
 		let offsety = this.elem.offsetTop + this.elem.offsetHeight/2 + deltay;
-		if(offsety >= this.elem.parentNode.offsetHeight) {
+		if (offsety >= this.elem.parentNode.offsetHeight) {
 			this.elem.style.top = this.elem.parentNode.offsetHeight - this.elem.offsetHeight/2 + 'px';
 			this.clientY = (deltay + this.clientY) - (offsety - this.elem.parentNode.offsetHeight);
 		} else if(offsety <= 0) {
@@ -317,15 +321,15 @@ class AnswerZone extends MoveableItem {
 		return temp;
 	}
 	addOperand(operand) {
-		this.operandStack.push(parseInt(operand));
+		this.operandStack.push(Number(operand));
 		if (this.leftright) {
-			this.leftOperand = parseInt(operand);
+			this.leftOperand = Number(operand);
 			this.elem.childNodes[0].childNodes[0].innerHTML = this.leftOperand;
 			if (this.rightOperand === null) {
 				this.leftright = !this.leftright;
 			}
 		} else {
-			this.rightOperand = parseInt(operand);
+			this.rightOperand = Number(operand);
 			if (this.rightOperand < 0) {
 				this.elem.childNodes[2].childNodes[0].innerHTML = this.rightOperand;
 			} else {

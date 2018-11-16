@@ -3,7 +3,11 @@ CREATE TABLE 'Users' (
   'username' VARCHAR(45) NULL,
   'password' VARCHAR(45) NULL,
   'salt' VARCHAR(45) NULL,
+  <'created_at' TIMESTAMP,
+  'updated_at' TIMESTAMP,
+  'deleted_at' TIMESTAMP,>
   PRIMARY KEY ('id'));
+
 
 
 CREATE TABLE 'Files' (

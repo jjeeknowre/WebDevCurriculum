@@ -1,5 +1,18 @@
 Q1. How do you design a RDBMS to store an array with an unknown length?
-A1.
+A1. 1: "[1, 2, 4, 6, 8]" "{foo: 'bar'}"
+
+1: 1 foo
+1: 2 foo
+1: 4 foo
+1: 6 foo
+1: 8 foo
+
+a b
+1 1
+1 2
+1 4
+1 6
+1 8
 
 Q2. What is database normalization?
 A2. Normalization is a technique of organizing the data into multiple related
@@ -18,6 +31,7 @@ and Example
 
 Q4. What is table indexing in RDBMS? What does it do, and how does it work?
 A4. Table indexing is how the database indexes its tables to quickly access data
+<look into B-tree algorithm>
 
 Q5. Why is it possible to authenticate a user's password without having to 
 store the user's password in plain text in the database?
