@@ -1,0 +1,13 @@
+Q1. What are the performance benefits of combining multiple pieces of Javascript
+images, and component files together?
+A1. 
+    Q1a. What are the pros and cons of bundling an image with a data URL?
+    A1a. 
+
+Q2. What is a Source Map and what are its advantages?
+A2.
+
+Q3. What do Webpack modules and plugins do?
+A3.
+    Q3a. How do you set up the HMR (Hot Module Replacement) function using Webpack?
+    A3a.
